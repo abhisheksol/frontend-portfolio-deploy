@@ -19,12 +19,12 @@ function AdminProjects() {
       dispatch(ShowLoading());
       let response;
       if (selectedItemForEdit) {
-        response = await axios.post("/api/portfolio/update-project", {
+        response = await axios.post("https://portfolio-ebon-sigma-59.vercel.app/api/portfolio/update-project", {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post("/api/portfolio/add-project", values);
+        response = await axios.post("https://portfolio-ebon-sigma-59.vercel.app/api/portfolio/add-project", values);
       }
 
       dispatch(HideLoading());
@@ -46,7 +46,7 @@ function AdminProjects() {
   const onDelete = async (item) => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/portfolio/delete-project", {
+      const response = await axios.post("https://portfolio-ebon-sigma-59.vercel.app/api/portfolio/delete-project", {
         _id: item._id,
       });
       dispatch(HideLoading());
@@ -87,9 +87,9 @@ function AdminProjects() {
             <div className="flex justify-end gap-5 mt-5">
               <button
                 className="bg-red-500 text-white px-5 py-2 "
-                onClick={() => {
-                  onDelete(project);
-                }}
+                // onClick={() => {
+                //   onDelete(project);
+                // }}
               >
                 Delete
               </button>

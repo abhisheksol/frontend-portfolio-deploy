@@ -1,10 +1,125 @@
+/* Existing animations */
 @keyframes textAnimation {
-    0% { opacity: 0; transform: translateY(-20px); }
-    50% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(20px); }
+  0% { opacity: 0; transform: translateY(-20px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+.animation-text {
+  animation: textAnimation 3s infinite;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Enhanced mobile optimizations */
+@media (max-width: 768px) {
+  /* Center alignment for hero elements */
+  .hero-element {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
   }
   
-  .animation-text {
-    animation: textAnimation 3s infinite;
+  /* Force center alignment on mobile */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center !important;
+    width: 100% !important;
   }
   
+  /* Better spacing for readability */
+  .relative.flex.flex-col {
+    padding: 1rem;
+    padding-top: 5rem !important;
+  }
+  
+  /* Optimize animations for mobile */
+  .particle, .floating-shape {
+    opacity: 0.25; /* More subtle on mobile */
+  }
+  
+  /* Prevent content overflow */
+  .overflow-hidden {
+    overflow-x: hidden !important;
+  }
+  
+  /* Better TypeAnimation container on mobile */
+  .flex.items-center {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  /* Adjust icon positioning in type animation */
+  .inline-block.ml-2 {
+    margin-left: 8px !important;
+    vertical-align: middle !important;
+  }
+  
+  /* Fixed height for type animation to prevent layout shifts */
+  h2.hero-element {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Even smaller devices */
+@media (max-width: 360px) {
+  .relative.flex.flex-col {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  h2.hero-element {
+    min-height: 60px;
+    font-size: 1.25rem !important;
+  }
+  
+  .particle, .floating-shape {
+    opacity: 0.15; /* Even more subtle */
+  }
+}
+
+/* Animation for the TypeAnimation icons */
+@keyframes iconPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.animate-pulse {
+  animation: iconPulse 2s infinite;
+}
+
+/* Enhanced gradient background for mobile */
+@media (max-width: 768px) {
+  .bg-gradient-to-br {
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+  }
+  
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}

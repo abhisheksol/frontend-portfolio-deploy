@@ -1,0 +1,18 @@
+/* header2.css */
+@media (max-width: 768px) {
+    .lg\:flex {
+        display: none;
+    }
+    .lg\:hidden {
+        display: block;
+    }
+    .lg\:hidden > ul {
+        display: flex; /* Change display to flex */
+        flex-direction: row; /* Change flex direction to row */
+        align-items: center;
+    }
+    .lg\:hidden > ul > li {
+        margin: 0 10px; /* Add margin between list items */
+    }
+    /* Add other responsive styles here */
+}
